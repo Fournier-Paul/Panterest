@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Find all pins
-{% endblock %}
+{% block title %}Find all pins{% endblock %}
+
 
 {% block body %}
-	{% for pin in pins %}
 		<h1>
-			{{pluralize(pins|length, 'Pin', 'Pins')}}
-			Pins</h1>
+			{{pluralize(pins|length, 'Pin')}}
+			</h1>
+	{% for pin in pins %}
 		<article>
 			<h2>
-				<a href="{{ path('app_pin_show', {id: pin.id})}}">
+				<a href="{{ path('app_pins_show', {id: pin.id})}}">
 					{{pin.title}}
 				</a>
 			</h2>

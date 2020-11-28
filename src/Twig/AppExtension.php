@@ -27,7 +27,7 @@ class AppExtension extends AbstractExtension
 
     public function doSomething(int $count, string $singulier, ?string $pluriel = null) : string
     {
-        // $pluriel = $pluriel ?? $singulier . 's';
+        //$pluriel = $pluriel ?? $singulier . 's';
         $pluriel ??= $singulier . 's';
         $str = $count === 1 ? $singulier : $pluriel;
         return "$count $str";
