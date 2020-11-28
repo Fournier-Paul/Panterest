@@ -49,6 +49,14 @@ class PinsController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+       /**
+     * @Route("/pins/{id<[0-9]+>}", name="app_pins_show", methods={"GET"})
+     */
+    public function show(Pin $pin): Response
+    {
+        return $this->render('pins/show.html.twig', compact('pin'));
+    }
+
     /**
      * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET", "PUT"})
      *
@@ -75,22 +83,12 @@ class PinsController extends AbstractController
 
         ]);
     }
-    /**
-     * @Route("/pins/{id<[0-9]+>}", name="app_pins_show", methods={"GET"})
-     */
-    public function show(Pin $pin): Response
-    {
-        return $this->render('pins/show.html.twig', compact('pin'));
-    }
+ 
     /**
      * Delete Pin
      * 
-     * @Route("/pins/{id<[0-9]+>}/delete", name="app_pins_delete", methods={"DELETE"})
+     * @Route("/pins/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
      * 
-     * @param Request $request
-     * @param Pin $pin
-     * @param EntityManagerInterface $em
-     * @return Response
      */
     public function delete(Request $request, Pin $pin, EntityManagerInterface $em): Response
     {
