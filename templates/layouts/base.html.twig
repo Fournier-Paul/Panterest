@@ -7,8 +7,31 @@
 			{% endblock %}
 		</title>
 		{% block stylesheets %}{% endblock %}
+		<style>
+		.alert{
+			padding:10px;
+			color:white;
+			text-align:center;
+			} 
+		.alert-success{
+			padding:10px;
+			background-color:green;
+			text-align:center;
+			} 
+		.alert-error{
+			padding:10px;
+			background-color:red;
+			text-align:center;
+			} 
+		.alert-info{
+			padding:10px;
+			background-color:blue;
+			text-align:center;
+			} 
+			</style>
 	</head>
 	<body>
+		{{ include('layouts/partials/_flash_messages.html.twig') }}
 		<nav>
 			<ul>
 				<li><a href="{{ path('app_home') }}">Home</a></li>
