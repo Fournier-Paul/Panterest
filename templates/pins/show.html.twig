@@ -9,11 +9,11 @@
 					<a href="{{ path('app_pins_show', {id: pin.id})}}">
 						<img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/placeholder.jpg') | imagine_filter('squared_thumbnail_medium')) }}" alt=" {{pin.title}}" class="w-100">
 					</a>
-					<h2 class="h5 pl-3 pt-3">
+					<h1 class="h5 pl-3 pt-3">
 						<a href="{{ path('app_pins_show', {id: pin.id})}}" class="text-muted">
 							{{pin.title}}
 						</a>
-					</h2>
+					</h1>
 
 					<p class="pl-3 mb-3 text-muted text-decoration-none text-secondary">
 						<small>Submited
