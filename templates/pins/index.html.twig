@@ -1,23 +1,43 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block title %}Find all pins{% endblock %}
+{% block title %}Find all pins
+{% endblock %}
 
 
 {% block body %}
-		<h1>
+	{% if pins|length > 0 %}
+		<h1 class="text-center text-muted mb-4">
 			{{pluralize(pins|length, 'Pin')}}
-			</h1>
-	{% for pin in pins %}
-		<article>
-			<h2>
-				<a href="{{ path('app_pins_show', {id: pin.id})}}">
-					{{pin.title}}
-				</a>
-			</h2>
-			<p>
-				{{pin.description|u.truncate(10, '...', false) }}
-			</p>
-			<p>Submited {{pin.createdAt|ago }} </p>
-		</article>
-	{% endfor %}
+		</h1>
+		{% for row in pins|batch(3) %}
+			<div class="row mb-5">
+				{% for pin in pins %}
+					<div class="col-md-4">
+						<article class="pin bg-white rounded shadow">
+							<div class="mw-100 overflow-hidden">
+								<a href="{{ path('app_pins_show', {id: pin.id})}}">
+									<img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/placeholder.jpg') | imagine_filter('squared_thumbnail_medium')) }}" alt=" {{pin.title}}" class="w-100 rounded-top">
+								</a>
+								<h2 class="h5 pl-3 pt-3">
+									<a href="{{ path('app_pins_show', {id: pin.id})}}" class="text-muted">
+										{{pin.title}}
+									</a>
+								</h2>
+
+								<p class="pl-3 mb-3 text-muted text-decoration-none text-secondary">
+									<small>Submited
+									[OWNER FULL NAME]
+									</small>
+								</p>
+							</div>
+						</article>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	{% else %}
+		<p class="h1 text-center mt-5">No pins yet .
+			<a href=" {{path('app_pins_create')}} ">Be the first!</a>
+		</p>
+	{% endif %}
 {% endblock %}
