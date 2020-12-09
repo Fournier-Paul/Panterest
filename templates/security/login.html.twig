@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html.twig' %}
 
 {% block title %}Log in!
-{% endblock %}
+
 
 {% block body %}
 	<div class="row">
@@ -40,7 +40,9 @@
 			<button class="btn btn-lg btn-block btn-primary" type="submit">
 				Sign in
 			</button>
-            <p class="mt-5 mb-3 text-center text-muted">Not registered yet ? <a href="#">Create an account</a></p>
+            <p class="mt-5 mb-3 text-center text-muted">Not registered yet ? <a href="{{path('app_login')}}">Create an account</a></p>
 		</form>
 	</div>
-</div>{% endblock %}
+</div>
+{% endblock %}
+{% endblock %}
