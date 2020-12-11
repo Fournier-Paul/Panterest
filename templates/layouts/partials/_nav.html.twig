@@ -19,7 +19,7 @@
 					<a class="nav-link" href="#" onclick="event.preventDefault();
 					document.getElementById('js-logout-form').submit();">Logout</a>
 				</li>
-				<form action="{{path('app_logout')}}" id="js-logout-form" methods="POST" style="display:none;">
+				<form id="js-logout-form" action="{{path('app_logout')}}" method="POST" style="display:none;">
 				<input type="hidden" name="_csrf_token" value="{{csrf_token('logout')}}">
 				</form>
 				{% else %}
