@@ -1,4 +1,4 @@
-# Panterest clone with Symfony 5
+# Panterest 
 
 ## Panterest clone with Symfony 5
 
